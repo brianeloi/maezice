@@ -1,0 +1,14 @@
+.form_page {
+    height: 100%;
+}
+
+.first_half, .second_half {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.first_half {
+    background-color: #ececec;
+}
