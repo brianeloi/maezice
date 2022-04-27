@@ -1,6 +1,6 @@
 import { toSnakeCase, removeAcents, capitalize, breakLine } from "./str_utils.js";
 
-export const generatePdf = ({ table = [], answers = {}}) => {
+export const generatePdf = ({ table = [], answers = {}, pdfContent = {}}) => {
   const projName_h = 12
   const projName_w = 5
   const start_h = 10
@@ -111,7 +111,7 @@ export const generatePdf = ({ table = [], answers = {}}) => {
   }
 
   //const groups = table[0]['Grupo'].replace(' ', '').split(',')
-  let grouped_content = {}
+  /*let grouped_content = {}
   for(let i = 1; i < table.length; i++){
     if(table[i]['Grupo'] != undefined && table[i]['Classificação'] && itemDemanded(table[i])) {
       let group_name = table[i]['Grupo'].toLowerCase()
@@ -127,7 +127,9 @@ export const generatePdf = ({ table = [], answers = {}}) => {
         'Obs': breakLine(table[i]['Obs'], 55)
       })
     }
-  }
+  }*/
+
+  const grouped_content = pdfContent
 
   const writeText = (text, width, height, { size = item_size, color = '#000000', font = '', center = false, type = "normal" }, style) => {
     doc.setTextColor(color)
@@ -207,8 +209,9 @@ export const generatePdf = ({ table = [], answers = {}}) => {
       current_h = current_group_h
       let current_w = add_klass(klass)
       let itens = klasses[klass]
+      let itens_lenght = Object.keys(itens).length
 
-      for(let j = 0; j < itens.length; j++){
+      for(let j = 0; j < itens_lenght; j++){
         add_item(itens[j], current_w + (item_w - klass_w))
         item_max_h = current_h > item_max_h ? current_h : item_max_h
         current_h = check_page_break()

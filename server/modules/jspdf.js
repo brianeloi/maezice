@@ -117,17 +117,20 @@ export const generatePdf = ({ table = [], answers = {}}) => {
       let group_name = table[i]['Grupo'].toLowerCase()
       let klass_name = conditional_klass(table[i]['Classificação'].toLowerCase())
       if(!grouped_content[group_name]){
-        grouped_content[group_name] = []
+        grouped_content[group_name] = {}
       }
       if(!grouped_content[group_name][klass_name]){
-        grouped_content[group_name][klass_name] = []
+        grouped_content[group_name][klass_name] = {}
       }
-      grouped_content[group_name][klass_name].push({
+      let klass_length = Object.keys(grouped_content[group_name][klass_name]).length
+      grouped_content[group_name][klass_name][klass_length] = {
         'Itens': breakLine(table[i]['Itens'], 35),
         'Obs': breakLine(table[i]['Obs'], 55)
-      })
+      }
     }
   }
+
+  return grouped_content
 
   const writeText = (text, width, height, { size = item_size, color = '#000000', font = '', center = false, type = "normal" }, style) => {
     doc.setTextColor(color)

@@ -1,8 +1,9 @@
+import { mainTable } from '../server/db/main_table2.js'
+import { generatePdf } from '../server/modules/jspdf.js'
+import  express from "express"
+import cors from "cors"
 
-
-const express = require("express")
 const app = express();
-const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
@@ -12,9 +13,9 @@ app.listen(3001, () => {
 });
 
 app.get('/pdf/:params', (req, res) => {
-    const { params } = req.params;
-    console.log(params)
-    console.log(JSON.parse(params))
-    res.send(JSON.parse(params))
+    const { answers } = req.params;
+    const table = mainTable;
+    const grouped_content = generatePdf({ table, answers })
+    res.send(grouped_content)
 });
 
