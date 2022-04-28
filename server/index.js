@@ -13,9 +13,11 @@ app.listen(3001, () => {
 });
 
 app.get('/pdf/:params', (req, res) => {
-    const { answers } = req.params;
+    const { params } = req.params;
     const table = mainTable;
+    const answers = JSON.parse(params)
     const grouped_content = generatePdf({ table, answers })
+    //console.log(grouped_content)
     res.send(grouped_content)
 });
 
