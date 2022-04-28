@@ -46,6 +46,7 @@ export const generatePdf = ({ answers = {}, pdfContent = {}}) => {
   const check_page_break = (tolerance = 0) => {
     if((current_h + tolerance) > page_h) {
       doc.addPage();
+      item_max_h = null
       return start_h
     }
     return current_h
