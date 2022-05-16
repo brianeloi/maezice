@@ -13,6 +13,13 @@ app.listen(3001, () => {
 });
 
 app.get('/pdf/:params', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
+    res.send('cors problem fixed:)');
+
     const { params } = req.params;
     const table = mainTable;
     const answers = JSON.parse(params)

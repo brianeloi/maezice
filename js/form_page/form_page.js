@@ -11,7 +11,7 @@ export const formPage = ({ formParams }) => {
     
     const pdfContentRequest = answers => {
       console.log(JSON.stringify(answers))
-      axios.get(`http://localhost:3001/pdf/${JSON.stringify(answers)}`).then((response) => {
+      axios.get(`http://15.228.3.119:3001/pdf/${JSON.stringify(answers)}`).then((response) => {
         generatePdf({ answers, pdfContent: response.data })
       })
     }
