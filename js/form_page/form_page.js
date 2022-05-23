@@ -16,6 +16,16 @@ export const formPage = ({ formParams }) => {
       })
     }
 
+    const backButtonFunction = () => {
+      if(formParams['question'] != formQuestions[0]) {
+        const indexOfQuestion = formQuestions.indexOf(formParams['question'])
+        const question = formQuestions[indexOfQuestion-1]
+        switchPage({ newPage: formPage, params: {formParams: { question }} })
+      } else {
+        window.location.reload()
+      }
+    }
+
     const formButtonFunction = () => {
       if(formParams['question']  != formQuestions[formQuestions.length-1]) {
         const indexOfQuestion = formQuestions.indexOf(formParams['question'])
@@ -35,7 +45,7 @@ export const formPage = ({ formParams }) => {
                             '<header id="form_description" class="form_description">'+formDescription+'</header>'+
                         '</div>' +
                         '<div id="second_half" class="second_half">' +
-                            formContent({ formButtonFunction, formParams })
+                            formContent({ formButtonFunction, formParams, backButtonFunction })
                         '</div>' +
                     '</div>'
     

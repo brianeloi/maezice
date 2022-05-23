@@ -1,4 +1,4 @@
-export const formTextInput = ({ formContentFunction, inputLabel }) => {
+export const formTextInput = ({ formContentFunction, inputLabel, backButtonFunction }) => {
     const content =     '<div id="md_input_container" class="md_input_container">' +
                             '<input required id="md_input" class="md_input"></input>' +
                             '<label id="md_label" class="md_label noselect"> '+inputLabel+' </label>' +

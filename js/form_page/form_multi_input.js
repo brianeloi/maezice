@@ -1,4 +1,5 @@
-export const formMultiInput = ({ formContentFunction, questionChoices = [], inputListenterFunction, questionDescription }) => {
+export const formMultiInput = ({ formContentFunction, questionChoices = [], inputListenterFunction,
+                                 questionDescription, backButtonFunction }) => {
     let choiceContents = ''
     for(let i = 0; i < questionChoices.length; i++) {
         choiceContents +='<div id="md_choice_'+i+'" class="md_choice">'+

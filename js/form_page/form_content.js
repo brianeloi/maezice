@@ -2,7 +2,7 @@ import { formTextInput } from './form_text_input.js'
 import { formDateInput } from './form_date_input.js'
 import { formMultiInput } from './form_multi_input.js'
 
-export const formContent = ({ formButtonFunction, formParams }) => {
+export const formContent = ({ formButtonFunction, formParams, backButtonFunction }) => {
     const question = formParams['question']
     const questionSettings = {
         'name': {
@@ -65,15 +65,17 @@ export const formContent = ({ formButtonFunction, formParams }) => {
           case 'text':
             return formTextInput({
                 formContentFunction,
-                inputLabel: (questionSettings[question]['label'] || '')
+                inputLabel: (questionSettings[question]['label'] || ''),
+                backButtonFunction
             })
           case 'date':
-            return formDateInput({ formContentFunction, inputListenterFunction })
+            return formDateInput({ formContentFunction, inputListenterFunction, backButtonFunction })
           case 'multi':
             return formMultiInput({
                 formContentFunction,
                 questionChoices: questionSettings[question]['choices'],
-                inputListenterFunction
+                inputListenterFunction,
+                backButtonFunction
             })
         }
     }
@@ -122,6 +124,18 @@ export const formContent = ({ formButtonFunction, formParams }) => {
                 formButtonFunction()
             }
         })
+
+        if(backButtonFunction) {
+            const backButton = document.getElementById('back_button')
+            const restartButton = document.getElementById('restart_button');
+            if(backButton) {
+                backButton.onclick = function(event) { backButtonFunction() }
+            }
+
+            if(restartButton) {
+                restartButton.onclick = function(event) { window.location.reload() }
+            }
+        }
     }
 
     const mainSeason = date => {
@@ -148,7 +162,18 @@ export const formContent = ({ formButtonFunction, formParams }) => {
         return questionSettings[question]['desc'].replace(':season', 'a época do nascimento')
     }
 
-    const content = '<div id="form_content" class="form_content">' +
+    const renderBackButons = () => {
+        if(!backButtonFunction) return ''
+
+        const buttons = '<button id="back_button" class="back_button circle_button">' +
+                            '<img src="images/arrow-left.png" width="40vw" height="40vw" style="margin-top: 0.5vw;">' +
+                        '</button>' +
+                        '<button id="restart_button" class="restart_button circle_button"> X </button>'
+        return buttons
+    }
+
+    const content = renderBackButons() +
+                    `<div id="form_content" class="form_content ${backButtonFunction ? 'form_content_padding' : ''}">` +
                         '<div id="form_title" class="form_title"> '+(processDescription() || '')+' </div>' +
                         formQuestion() +
                         '<button id="form_button" class="form_button">' +

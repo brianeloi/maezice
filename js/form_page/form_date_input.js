@@ -1,4 +1,5 @@
-export const formDateInput = ({ formContentFunction, inputListenterFunction }) => {
+export const formDateInput = ({ formContentFunction, inputListenterFunction,
+                                backButtonFunction }) => {
     //const dateComponent = (options, )
     
     const yearComponent = () => {
