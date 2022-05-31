@@ -22,3 +22,72 @@
     box-shadow: 0px 1px 3px 1px #08080854;
     border-radius: 10%;
 }
+
+.title_text {
+    font-size: 2vw;
+    font-weight: bold;
+    color: #233A8A;
+}
+
+.main_page_title {
+    position: relative;
+    top: 30%;
+    left: 3%;
+    float: left;
+}
+
+.main_page_second_sector {
+    height: 75%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 22% 56% 22%;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas: 
+    "rightbar topbar leftbar"
+    "rightbar centerspace leftbar"
+    "rightbar bottombar leftbar";
+}
+
+.frames {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.frame_1 {
+    grid-area: rightbar;
+    background-image: url("../images/frame_1.svg");
+}
+
+.frame_2 {
+    grid-area: topbar;
+    background-image: url("../images/frame_2.svg");
+}
+
+.frame_3 {
+    grid-area: leftbar;
+    background-image: url("../images/frame_3.svg");
+}
+
+.frame_4 {
+    grid-area: centerspace;
+}
+
+.frame_5 {
+    grid-area: bottombar;
+    background-image: url("../images/frame_5.svg");
+}
+
+.second_sector_title {
+    text-align: center;
+    position: relative;
+    top: 20%;
+}
+
+.second_sector_text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3vw;
+    padding: 0 5vw;
+    position: relative;
+    top: 40%;
+}
