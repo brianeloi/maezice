@@ -18,3 +18,11 @@ input:focus, textarea:focus, select:focus{
 .fa {
     color: #b1b1b1;
 }
+
+.pattern_button {
+    background-color: #263F8C;
+    border: 0;
+    border-radius: 3vw;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}

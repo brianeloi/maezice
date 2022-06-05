@@ -1,6 +1,10 @@
 .main_page_body {
     width: 100%;
     height: 90%;
+    background-image: url("../images/main_page_first_image.png");
+    background-size: 25vw;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 .card_container {
@@ -13,20 +17,28 @@
     position: relative;
 }
 
+.card_border {
+    box-shadow: 0px 1px 3px 1px #08080854;
+    border-radius: 3vw;
+}
+
 .card_content {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0px 1px 3px 1px #08080854;
-    border-radius: 10%;
 }
 
 .title_text {
-    font-size: 2vw;
+    font-size: 3vw;
     font-weight: bold;
     color: #233A8A;
+}
+
+.paragraph {
+    font-weight: bold;
+    font-size: 1.5vw;
 }
 
 .main_page_title {
@@ -47,31 +59,25 @@
     "rightbar centerspace leftbar"
     "rightbar bottombar leftbar";
 }
-
 .frames {
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 .frame_1 {
     grid-area: rightbar;
     background-image: url("../images/frame_1.svg");
 }
-
 .frame_2 {
     grid-area: topbar;
     background-image: url("../images/frame_2.svg");
 }
-
 .frame_3 {
     grid-area: leftbar;
     background-image: url("../images/frame_3.svg");
 }
-
 .frame_4 {
     grid-area: centerspace;
 }
-
 .frame_5 {
     grid-area: bottombar;
     background-image: url("../images/frame_5.svg");
@@ -85,9 +91,105 @@
 
 .second_sector_text {
     text-align: center;
-    font-weight: bold;
-    font-size: 1.3vw;
     padding: 0 5vw;
     position: relative;
-    top: 40%;
+    top: 30%;
+}
+
+.main_page_third_sector {
+    height: 250%;
+    width: 100%;
+    position: relative;
+    top: 4vw;
+    background-image: url("../images/3rd_section_bg.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 3vw;
+}
+
+.third_sector_title {
+    text-align: right;
+    position: relative;
+    right: 6vw;
+}
+
+.card_grid_container {
+    height: 30%;
+    position: relative;
+    top: 2vw;
+    padding: 2vw 2vw 2vw 17vw;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: "first second third fourth";
+}
+.cards {
+    margin: 0 0.7vw;
+    box-shadow: 0px 4px 4px 1px rgb(0 0 0 / 25%);
+    padding: 5vw 0;
+}
+.card_1 {
+    grid-area: first;
+    background-image: url("../images/mom_card_1.png");
+}
+.card_2 {
+    grid-area: second;
+}
+.card_3 {
+    grid-area: third;
+    background-image: url("../images/mom_card_2.png");
+}
+.card_4 {
+    grid-area: fourth;
+}
+.card_title {
+    font-size: 1.4vw;
+    font-weight: bold;
+    color: #233A8A;
+    text-align: center;
+}
+.card_text {
+    font-size: 1.3vw;
+    text-align: center;
+    margin-top: 4vw;
+}
+
+.third_sector_text {
+    position: relative;
+    float: right;
+    right: 4vw;
+    top: 10vw;
+}
+
+.third_sector_buy_button_grid {
+    position: relative;
+    height: 27%;
+    width: 100%;
+    top: 25vw;
+    display: grid;
+    grid-template-columns: 3% 40% 9% 22%;
+    grid-template-rows: auto;
+    grid-template-areas: "zero first second third last";
+}
+.buy_button_title, .buy_button_text, .buy_button {
+    grid-area: first;
+}
+
+.buy_button_text {
+    position: relative;
+    top: 5vw;
+}
+
+.buy_button {
+    position: relative;
+    top: 24vw;
+    height: 6vw;
+    font-size: 1.6vw;
+    font-weight: bold;
+    color: white;
+}
+
+.buy_button_card {
+    grid-area: third;
+    background-image: url("../images/last_card.png");
 }
